@@ -168,7 +168,7 @@ class Webhooks:
 
         pings = []
         check = msg.lower()
-        recheck = re.split('\W+', check)
+        recheck = re.split('\\W+', check)
         if "Arcade" in area.name:
             pings.append(ping_list["arcade"])
             caseF = False
