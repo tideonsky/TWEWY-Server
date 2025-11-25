@@ -1,9 +1,10 @@
 from time import gmtime, strftime
-from server import database
 
 import requests
 import json
 import random
+
+from server import database
 
 
 class Webhooks:
@@ -43,7 +44,7 @@ class Webhooks:
         data = {}
         data["content"] = message
         data["avatar_url"] = avatar_url
-        data["username"] = username if username is not None else "Change My Name Fat Ass"
+        data["username"] = username if username is not None else "tsuserver webhook"
         if embed is True:
             data["embeds"] = []
             embed = {}
@@ -81,7 +82,7 @@ class Webhooks:
                 ),
             )
 
-    def modcall(self, char, ipid, area, reason=None):
+    def modcall(self, id, char, ipid, area, reason=None):
         is_enabled = self.server.config["modcall_webhook"]["enabled"]
         username = self.server.config["modcall_webhook"]["username"]
         avatar_url = self.server.config["modcall_webhook"]["avatar_url"]
@@ -104,7 +105,7 @@ class Webhooks:
                 s = "s"
             message = f"New Reaper call received ({mods} Reaper{s} online)"
 
-        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}" # [{id}] is a define for ID, but it doesn't currently function
+        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}"
         if reason.isspace():
             reason = "No reason given"
 
