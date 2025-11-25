@@ -104,7 +104,7 @@ class Webhooks:
                 s = "s"
             message = f"New Reaper call received ({mods} Reaper{s} online)"
 
-        description = f"{char} (IPID: {ipid}) in [{area.id}] {area.name}"
+        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}" # [{id}] is a define for ID, but it doesn't currently function
         if reason.isspace():
             reason = "No reason given"
 
