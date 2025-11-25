@@ -90,6 +90,7 @@ class Webhooks:
         mod_role_id = self.server.config["modcall_webhook"]["mod_role_id"]
         mods = len(self.server.client_manager.get_mods())
         color = self.server.config["modcall_webhook"]["color"]
+        current_time = strftime("%H:%M", gmtime())
 
         if not is_enabled:
             return
@@ -104,7 +105,7 @@ class Webhooks:
                 s = "s"
             message = f"New modcall received ({mods} moderator{s} online)"
 
-        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}"
+        description = f"[{current_time} UTC] {char} ({ipid}) in hub [{area.area_manager.id}] {area.area_manager.name} [{area.id}] {area.name} {'without reason (using <2.6?)' if reason is None else f'with reason: {reason}'}"
         if reason.isspace():
             reason = "No reason given"
 
