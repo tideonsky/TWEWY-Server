@@ -2122,6 +2122,7 @@ class AOProtocol(asyncio.Protocol):
             database.log_area("modcall", self.client,
                               self.client.area, message=args[0])
             self.server.webhooks.modcall(
+                id=self.client.id,
                 char=self.client.char_name,
                 ipid=self.client.ip,
                 area=self.client.area,
