@@ -95,16 +95,16 @@ class Webhooks:
             return
 
         if mods == 0 and no_mods_ping:
-            modcall = f"<&@{mod_role_id}>"
-            message = f"{modcall if mod_role_id is not None else '@everyone'} A Player called for a Rea[er, but there are none online!"
+            modcall = f"<@&{mod_role_id}>"
+            message = f"{modcall if mod_role_id is not None else '@everyone'} A Player called for a Reaper, but there are none online!"
         else:
             if mods == 1:
                 s = ""
             else:
                 s = "s"
-            message = f"New reapercall received ({mods} reaper{s} online)"
+            message = f"New Reaper call received ({mods} Reaper{s} online)"
 
-        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}"
+        description = f"{char} (IPID: {ipid}) in [{area.id}] {area.name}"
         if reason.isspace():
             reason = "No reason given"
 
