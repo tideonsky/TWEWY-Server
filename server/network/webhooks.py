@@ -104,7 +104,7 @@ class Webhooks:
                 s = "s"
             message = f"New modcall received ({mods} moderator{s} online)"
 
-        description = f"{char} (IPID: {ipid}) in [{area.id}] {area.name}"
+        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}"
         if reason.isspace():
             reason = "No reason given"
 
