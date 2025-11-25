@@ -96,13 +96,13 @@ class Webhooks:
 
         if mods == 0 and no_mods_ping:
             modcall = f"<&@{mod_role_id}>"
-            message = f"{modcall if mod_role_id is not None else '@here'} A user called for a moderator, but there are none online!"
+            message = f"{modcall if mod_role_id is not None else '@everyone'} A Player called for a Rea[er, but there are none online!"
         else:
             if mods == 1:
                 s = ""
             else:
                 s = "s"
-            message = f"New modcall received ({mods} moderator{s} online)"
+            message = f"New reapercall received ({mods} reaper{s} online)"
 
         description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}"
         if reason.isspace():
@@ -329,6 +329,21 @@ class Webhooks:
             if reason.strip() != ""
             else " (no reason provided)."
         )
+
+        self.send_webhook(username=username,
+                          avatar_url=avatar_url, message=message)
+
+    def login(self, client=None, loginprofile=""):
+        if "login_webhook" not in self.server.config:
+            return
+        is_enabled = self.server.config["login_webhook"]["enabled"]
+        username = self.server.config["login_webhook"]["username"]
+        avatar_url = self.server.config["login_webhook"]["avatar_url"]
+        
+        if not is_enabled:
+            return
+
+        message = f"{client.name} ({client.ipid}) (hdid: {client.hdid}) has logged in as mod profile: {loginprofile}"
 
         self.send_webhook(username=username,
                           avatar_url=avatar_url, message=message)
