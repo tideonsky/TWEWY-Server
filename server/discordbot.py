@@ -67,7 +67,7 @@ class Bridgebot(commands.Bot):
                 await channel.send(embed=embed)
 
         @self.tree.command()
-        async def gethubs(interaction: discord.Interaction):
+        async def gethubs2(interaction: discord.Interaction):
             msg = ""
             number_players = int(self.server.player_count)
             msg += f"**Clients in Areas**\n"

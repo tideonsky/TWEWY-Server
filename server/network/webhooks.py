@@ -1,10 +1,9 @@
 from time import gmtime, strftime
+from server import database
 
 import requests
 import json
 import random
-
-from server import database
 
 
 class Webhooks:
@@ -44,7 +43,7 @@ class Webhooks:
         data = {}
         data["content"] = message
         data["avatar_url"] = avatar_url
-        data["username"] = username if username is not None else "tsuserver webhook"
+        data["username"] = username if username is not None else "Change My Name Fat Ass"
         if embed is True:
             data["embeds"] = []
             embed = {}
@@ -105,7 +104,7 @@ class Webhooks:
                 s = "s"
             message = f"New modcall received ({mods} moderator{s} online)"
 
-        description = f"[{current_time} UTC] {char} ({ipid}) in hub [{area.area_manager.id}] {area.area_manager.name} [{area.id}] {area.name} {'without reason (using <2.6?)' if reason is None else f'with reason: {reason}'}"
+        description = f"[{id}] {char} (IPID: {ipid}) in [{area.id}] {area.name}"
         if reason.isspace():
             reason = "No reason given"
 
