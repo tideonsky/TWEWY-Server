@@ -140,13 +140,21 @@ bridgebot:
 webhooks_enabled: false
 webhook_url: example.com
 
+# Whether or not Discord webhooks are enabled, and if they are, the webhook URL to use.
+# If webhooks_enabled is set to false, no webhooks will function regardless of whether they are enabled or not.
+webhooks_enabled: true
+webhook_url: example.com
+modcall_url: example.com
+advert_url: ['example.com', 'example.com']
+
 # Settings for the modcall webhook. Leaving a setting blank will use its default behavior.
 modcall_webhook:
   enabled: true
   username: Modcall # the username the webhook will use
   avatar_url: # url of a custom avatar image, leave blank to use the avatar the webhook was set up with
-  ping_on_no_mods: false # whether to ping mods if a modcall is received while no moderators are online
+  ping_on_no_mods: true # whether or not to ping mods if a modcall is received while no moderators are online
   mod_role_id: # the role ID of the role you want pinged. leave blank to use @here instead
+  color: "16777215"
 
 kick_webhook:
   enabled: true
@@ -163,19 +171,16 @@ unban_webhook:
   username: Unban
   avatar_url:
 
-login_webhook:
+warn_webhook:
   enabled: true
-  username: Login
+  username: Warn
   avatar_url:
-
-need_webhook:
+  
+advert_webhook:
   enabled: true
-  delay: 60
-  username: Need
-  avatar_url:
-  color: "12745742"  
-  pingoption: false
-  role_id:
-  title: "AO NEED CALL"  
-  message: "A user has used the /need command for players in the Attorney Online server!"  
-  url:
+  username: CASE ADVERT 
+  avatar_url: ""
+  case_img: ['example.com', 'example.com']
+  game_img: ['example.com', 'example.com']
+  case_color: "39168"
+  game_color: "6697983"
